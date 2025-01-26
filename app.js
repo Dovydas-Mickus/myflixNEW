@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const trending = require('./backend/trending');
 const movieDetails = require('./backend/movie')
