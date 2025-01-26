@@ -1,0 +1,40 @@
+<% const movie_base_url = 'https://api.themoviedb.org/3/movie/' %>
+
+<link rel="stylesheet" href="/styles/trendingWheel.css">
+<div class="wheel-container">
+    <button class="scroll-button" id="movie-scroll-left">
+        <img src="/images/arrow_back.svg" alt="">
+    </button>
+    <div class="wheel" id="movie-wheel">
+        <% trendingMovies.forEach((movie) => { %>
+            <a href="/movie/<%= movie.id %>" class="wheel-item">
+                <img src="<%= image_base_url + movie.poster_path %>" alt="<%= movie.title %>">
+                
+            </a>
+        <% }); %>
+    </div>
+    <button class="scroll-button" id="movie-scroll-right">
+        <img src="/images/arrow_forward.svg" alt="">
+    </button>
+</div>
+<script>
+    const movieScrollLeftButton = document.getElementById('movie-scroll-left');
+    const movieScrollRightButton = document.getElementById('movie-scroll-right');
+    const movieWheel = document.getElementById('movie-wheel')
+
+
+
+    movieScrollLeftButton.addEventListener('click', () => {
+        movieWheel.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    movieScrollRightButton.addEventListener('click', () => {
+        movieWheel.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+</script>

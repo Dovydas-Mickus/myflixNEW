@@ -1,0 +1,39 @@
+.wheel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.wheel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 20px 20px;
+}
+
+.wheel-item {
+    display: flex;
+    flex: 0 0 auto;
+    text-align: center;
+    background: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    height: 150px;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.wheel-item:hover {
+    transform: scale(1.1);
+    background-color: #444;
+}
+
+.wheel-item img {
+    object-fit: contain;
+}
+

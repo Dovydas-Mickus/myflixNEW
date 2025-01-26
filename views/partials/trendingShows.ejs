@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/styles/trendingWheel.css">
+<div class="wheel-container">
+    <button class="scroll-button" id="show-scroll-left">
+        <img src="/images/arrow_back.svg" alt="">
+    </button>
+    <div class="wheel" id="show-wheel">
+        <% trendingShows.forEach((show) => { %>
+            <div class="wheel-item">
+                <img src="<%= image_base_url + show.poster_path %>" alt="<%= show.name %>">
+            </div>
+        <% }); %>
+    </div>
+    <button class="scroll-button" id="show-scroll-right">
+        <img src="/images/arrow_forward.svg" alt="">
+    </button>
+</div>
+<script>
+    const scrollLeftButton = document.getElementById('show-scroll-left');
+    const scrollRightButton = document.getElementById('show-scroll-right');
+    const wheel = document.getElementById('show-wheel')
+
+    // Adjust this value to set the scroll amount
+    const scrollAmount = 300; // You can change this value for a smoother or larger scroll
+
+    scrollLeftButton.addEventListener('click', () => {
+        wheel.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    scrollRightButton.addEventListener('click', () => {
+        wheel.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+</script>
